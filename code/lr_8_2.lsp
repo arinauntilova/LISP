@@ -1,0 +1,13 @@
+(defun select-between-rec (lst l r)
+	(cond ((null lst) nil)
+		((and (> (car lst) l) (< (car lst) r)) (cons (car lst) (select-between-rec (cdr lst) l r)))
+		(T (select-between-rec (cdr lst) l r))
+	)
+)
+
+(defun select-between (lst l r)
+	(cond ((null lst) nil)
+		((> l r) (select-between-rec lst r l))
+		(T (select-between-rec lst l r))
+	)
+)
