@@ -1,0 +1,30 @@
+domains
+	name, surname, university, code = string
+predicates
+	nondeterm student(name, surname, code, university)
+clauses
+	student("Arina", "Untilova", "09.03.04.", "BMSTU").
+	student("Alla", "Vetrova", "10.05.03", "MAI").
+	student("Dima", "Petrov", "10.05.01", "MISiS").
+	student("Oleg", "Solovev", "42.03.02", "HSE").
+	student("Oleg", "Solovev", "09.03.04.", "MIFI").
+	student("Oleg", "Solovev", "03.03.02.", "MADI").
+	student("Danya", "Plotnikov", "08.02.01", "MArhI").
+	student("Danya", "Plotnikov", "10.05.03", University):-student("Dima", "Petrov", Code, University).
+goal
+	write("Input Surname: "), nl, readln(Surname),
+	write("Universities, where is studying ", Surname, ":"),
+	student(Name, Surname, Code, University), nl.
+	
+	/*write("Input University: "), nl, readln(University),
+	write("Students, studying at the ", University, ":"),
+	student(Name, Surname, Code, University), nl.*/
+	
+	/*write("Input Surname: "), nl, readln(Surname),
+	write("Input University: "), nl, readln(University),
+	write("Check, if ", Surname, "studying at the ", University, ":"),
+	student(Name, Surname, Code, University), nl.
+	
+	write("Input Code of profession: "), nl, readln(Code),
+	write("Students, studying at the ", Code, "(software engineering): "),
+	student(Name, Surname, Code, University), nl.*/

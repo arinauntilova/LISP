@@ -1,0 +1,11 @@
+predicates
+	nondeterm person(symbol, symbol, symbol)
+clauses
+	person("Arina", "Untilova", "8-966-133-04-55").
+	person("Marina", "Untilova", "8-956-742-91-59").
+	person("Ivan", "Vetrov", "8-933-891-22-65").
+	person("Anna", "Petrova", "8-922-322-64-82").
+	person("Oleg", "Sidorov", "8-928-800-07-91").
+goal
+	write("Input Surname: "), nl, readln(Surname),
+	person(Name, Surname, Telephone), nl.

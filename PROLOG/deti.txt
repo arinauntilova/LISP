@@ -1,0 +1,22 @@
+domains 
+    name = symbol.
+predicates
+    parents(name, name, name).
+    family(name, name, name, name, name, name, name).
+
+clauses
+    family(Grandmom_Mline, Grandfa_Mline, Grandmom_Fline, Grandfa_Fline, Mother, Father, Child):-
+        parents(Mother, Father, Child),
+        parents(Grandmom_Mline, Grandfa_Mline, Mother),
+        parents(Grandmom_Fline, Grandfa_Fline, Father).
+
+    parents("Katya", "Oleg", "Vera").
+    parents("Ann", "Ivan", "Katya").
+    parents("Karina", "Dmitry", "Oleg").
+    
+goal
+    %family(Grandmom_MlineQ, _, Grandmom_FlineQ, _, _, _, "Vera").
+    %family(_, Grandfa_MlineQ, _, Grandfa_FlineQ, _, _, "Vera").
+    %family(Grandmom_MlineQ, Grandfa_MlineQ, Grandmom_FlineQ, Grandfa_FlineQ, _, _, "Vera").
+    %family(Grandmom_MlineQ, _, _, _, _, _, "Vera").
+    family(Grandmom_MlineQ, Grandfa_MlineQ, _, _, _, _, "Vera").

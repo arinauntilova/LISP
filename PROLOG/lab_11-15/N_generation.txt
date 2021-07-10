@@ -1,0 +1,38 @@
+domains 
+    name = symbol.
+predicates
+    parents(name, name, name).
+    fam(integer, name, name, name).
+
+clauses
+     
+    fam(1, Child, Mother, Father) :- parents(Mother, Father, Child), !.
+    fam(N, Child, Mother, Father) :- parents(Mother1, _, Child),
+                                    N_new = N - 1,
+                                    fam(N_new, Mother1, Mother, Father).
+
+    fam(N, Child, Mother, Father) :- parents(_, Father1, Child),
+                                    N_new = N - 1,
+                                    fam(N_new, Father1, Mother, Father).
+
+    %1
+    parents("Katya", "Oleg", "Vera").
+    
+    %2
+    parents("Ann", "Ivan", "Katya").
+    parents("Karina", "Dmitry", "Oleg").
+    
+    %3
+    parents("Sofia", "Sasha", "Ann").
+    parents("Tanya", "Kostya", "Ivan").
+    
+    parents("Dasha", "Petya", "Karina").    
+    parents("Julia", "Oleg", "Dmitry").
+    
+    % === Vera's brother
+    parents("Katya", "Oleg", "Daniil").
+    
+goal
+    %fam(1, "Vera", Mom, Fa).
+    %fam(2, "Vera", Mom, Fa).
+    fam(3, "Vera", Mom, Fa).
